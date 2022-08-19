@@ -18,7 +18,7 @@ directors_schema = schema.Director(many=True)
 genre_schema = schema.Genre()
 genres_schema = schema.Genre(many=True)
 
-
+# Эндпоинт на один фильм с методами получения, обновления и удаления
 @movies_ns.route('/<int:movie_id>')
 class MovieView(Resource):
 
@@ -42,7 +42,7 @@ class MovieView(Resource):
         return None, 200
 
 
-
+# Эндпоинт на все фильмы с методом добавления других фильмов
 @movies_ns.route('/')
 class MoviesView(Resource):
 
@@ -70,7 +70,7 @@ class MoviesView(Resource):
 
         return None, 201
 
-
+# Эндпоинт на одного режиссера с методами получения, обновления и удаления
 @director_ns.route('/<int:director_id>/')
 class DirectorView(Resource):
     def get(self, director_id):
@@ -93,7 +93,7 @@ class DirectorView(Resource):
 
         return None, 200
 
-
+# Эндпоинт на всех режиссеров с методом добавления других режиссеров
 @director_ns.route('/')
 class DirectorsView(Resource):
     def get(self):
@@ -108,7 +108,7 @@ class DirectorsView(Resource):
 
         return None, 201
 
-
+# Эндпоинт на одного жанра с методами получения, обновления и удаления
 @genres_ns.route('/<int:genre_id>/')
 class GenreView(Resource):
     def get(self, genre_id):
@@ -131,7 +131,7 @@ class GenreView(Resource):
 
         return None, 200
 
-
+# Эндпоинт на все жанры с методом добавления других жанров
 @genres_ns.route('/')
 class GenresView(Resource):
     def get(self):
